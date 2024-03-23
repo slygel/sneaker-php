@@ -1,4 +1,4 @@
--- drop database if exists shoesland;
+drop database if exists shoesland;
 
 create database shoesland;
 use shoesland;
