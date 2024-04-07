@@ -28,7 +28,7 @@ function generateCode()
 include('../../common/config/Connect.php');
 
 //Handle login with google
-include('../../common/GoogleLogin.php');
+// include('../../common/GoogleLogin.php');
 
 
 //Handle login with fb
@@ -95,6 +95,7 @@ if (isset($_POST['login']) && isset($_POST['username']) && isset($_POST['passwor
     $username = $_POST['username'];
     $password = $_POST['password'];
     $email = $_POST['email'];
+    $phone = $_POST['phonenumber'];
     $passwordConfirmation = $_POST['passwordConfirmation'];
 
     $findByUsernameSQL = "SELECT * FROM tbl_user WHERE username = '$username'";
@@ -109,8 +110,8 @@ if (isset($_POST['login']) && isset($_POST['username']) && isset($_POST['passwor
     } else {
         $userId =  generateUuid();
         $userCode =  generateCode();
-        $createUser = "INSERT INTO tbl_user(id, code, username, password,email) 
-         VALUES ('" . $userId . "','" . $userCode . "','" . $username . "','" . $password . "','" . $email . "')";
+        $createUser = "INSERT INTO tbl_user(id, code, username, password,email,phonenumber) 
+         VALUES ('" . $userId . "','" . $userCode . "','" . $username . "','" . $password . "','" . $email . "' , '" . $phone . "')";
         $res = mysqli_query($connect, $createUser);
 
         if ($res) {
@@ -134,7 +135,6 @@ if (isset($_POST['login']) && isset($_POST['username']) && isset($_POST['passwor
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css'>
     <link rel="stylesheet" href="../styles/UserLoginAndSignUpStyles.css" />
 
-
 </head>
 
 <body>
@@ -153,7 +153,7 @@ if (isset($_POST['login']) && isset($_POST['username']) && isset($_POST['passwor
     <!-- Log In Form Section -->
 
     <section>
-        <div class="container" id="container">
+        <div class="container" id="container" style="min-height: 550px">
             <div class="form-container sign-up-container">
                 <form name="signUp" action="" method="POST">
                     <h1>Đăng ký</h1>
@@ -162,11 +162,6 @@ if (isset($_POST['login']) && isset($_POST['username']) && isset($_POST['passwor
                         <?php if (isset($loginUrl)) { ?>
                             <a href="<?php echo $loginUrl; ?>" target="_blank" class="social"><i class="fab fa-facebook"></i></a>
                         <?php } ?>
-
-                        <!-- login with google  -->
-                        <?php if (isset($authUrl)) { ?>
-                            <a href="<?php echo $authUrl; ?>" target="_blank" class="social"><i class="fab fa-google"></i></a>
-                        <?php } ?>
                     </div>
                     <span>Tạo tài khoản mới</span>
                     <label>
@@ -174,6 +169,9 @@ if (isset($_POST['login']) && isset($_POST['username']) && isset($_POST['passwor
                     </label>
                     <label>
                         <input required name="email" type="text" placeholder="Email người dùng" />
+                    </label>
+                    <label>
+                        <input required name="phonenumber" type="text" placeholder="Số điện thoại người dùng" />
                     </label>
                     <label>
                         <input required name="password" type="password" placeholder="Mật khẩu" />

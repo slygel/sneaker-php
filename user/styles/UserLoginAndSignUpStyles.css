@@ -20,6 +20,20 @@ body {
     width: 100%;
 
 }
+
+.container {
+    background: #fff;
+    border-radius: 90px;
+    box-shadow: 30px 14px 28px rgba(0, 0, 5, .2), 0 10px 10px rgba(0, 0, 0, .2);
+    position: relative;
+    overflow: hidden;
+    opacity: 85%;
+    width: 768px;
+    max-width: 100%;
+    min-height: 550px;
+    transition: 333ms;
+}
+
 .top_link {
     position: absolute;
     height: 30px;
@@ -97,7 +111,7 @@ body {
 
 body {
     font-family: 'Montserrat', sans-serif;
-     display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -123,26 +137,12 @@ span {
     font-size: 12px;
 }
 
- a {
+a {
     color: #0e263d;
     font-size: 14px;
     text-decoration: none;
     margin: 15px 0;
-} 
-
-.container {
-    background: #fff;
-    border-radius: 90px;
-    box-shadow: 30px 14px 28px rgba(0, 0, 5, .2), 0 10px 10px rgba(0, 0, 0, .2);
-    position: relative;
-    overflow: hidden;
-    opacity: 85%;
-    width: 768px;
-    max-width: 100%;
-    min-height: 480px;
-    transition: 333ms;
 }
-
 
 .form-container form {
     background: #fff;

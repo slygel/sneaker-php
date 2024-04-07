@@ -74,8 +74,8 @@ if (isset($_POST['confirmBuy'])) {
         $orderInfo = "Thanh toán qua MoMo";
         $amount = $_POST['totalAmount'] + $_POST['delivery'];
         $orderId = $order_code;
-        $redirectUrl = "http://localhost/Group11_PHP/user/userCommon/UserIndex.php?usingPage=done";
-        $ipnUrl = "http://localhost/Group11_PHP/user/userCommon/UserIndex.php?usingPage=done";
+        $redirectUrl = "http://localhost/sneaker-php/user/userCommon/UserIndex.php?usingPage=done";
+        $ipnUrl = "http://localhost/sneaker-php/user/userCommon/UserIndex.php?usingPage=done";
         $extraData = "";
 
         $partnerCode = $partnerCode;
@@ -150,49 +150,48 @@ if (isset($_POST['confirmBuy'])) {
         $orderInfo = "Thanh toán qua MoMo";
         $amount = $_POST['totalAmount'] + $_POST['delivery'];
         $orderId = $order_code;
-        $redirectUrl = "http://localhost/Group11_PHP/user/userCommon/UserIndex.php?usingPage=done";
-        $ipnUrl = "http://localhost/Group11_PHP/user/userCommon/UserIndex.php?usingPage=done";
+        $redirectUrl = "http://localhost/sneaker-php/user/userCommon/UserIndex.php?usingPage=done";
+        $ipnUrl = "http://localhost/sneaker-php/user/userCommon/UserIndex.php?usingPage=done";
         $extraData = "";
 
-            $partnerCode = $partnerCode;
-            $accessKey = $accessKey;
-            $serectkey = $secretKey;
-            $orderId = $order_code; // Mã đơn hàng
-            $orderInfo = $orderInfo;
-            $amount = $amount;
-            $ipnUrl = $ipnUrl;
-            $redirectUrl = $redirectUrl;
-            $extraData = $extraData;
+        $partnerCode = $partnerCode;
+        $accessKey = $accessKey;
+        $serectkey = $secretKey;
+        $orderId = $order_code; // Mã đơn hàng
+        $orderInfo = $orderInfo;
+        $amount = $amount;
+        $ipnUrl = $ipnUrl;
+        $redirectUrl = $redirectUrl;
+        $extraData = $extraData;
 
-            $requestId = time() . "";
-            $requestType = "captureWallet";
-            $extraData = ($_POST["extraData"] ? $_POST["extraData"] : "");
-            //before sign HMAC SHA256 signature
-            $rawHash = "accessKey=" . $accessKey . "&amount=" . $amount . "&extraData=" . $extraData . "&ipnUrl=" . $ipnUrl . "&orderId=" . $orderId . "&orderInfo=" . $orderInfo . "&partnerCode=" . $partnerCode . "&redirectUrl=" . $redirectUrl . "&requestId=" . $requestId . "&requestType=" . $requestType;
-            $signature = hash_hmac("sha256", $rawHash, $serectkey);
-            $data = array(
-                'partnerCode' => $partnerCode,
-                'partnerName' => "Test",
-                "storeId" => "MomoTestStore",
-                'requestId' => $requestId,
-                'amount' => $amount,
-                'orderId' => $orderId,
-                'orderInfo' => $orderInfo,
-                'redirectUrl' => $redirectUrl,
-                'ipnUrl' => $ipnUrl,
-                'lang' => 'vi',
-                'extraData' => $extraData,
-                'requestType' => $requestType,
-                'signature' => $signature
-            );
-            $result = execPostRequest($endpoint, json_encode($data));
-            $jsonResult = json_decode($result, true);  // decode json
+        $requestId = time() . "";
+        $requestType = "captureWallet";
+        $extraData = ($_POST["extraData"] ? $_POST["extraData"] : "");
+        //before sign HMAC SHA256 signature
+        $rawHash = "accessKey=" . $accessKey . "&amount=" . $amount . "&extraData=" . $extraData . "&ipnUrl=" . $ipnUrl . "&orderId=" . $orderId . "&orderInfo=" . $orderInfo . "&partnerCode=" . $partnerCode . "&redirectUrl=" . $redirectUrl . "&requestId=" . $requestId . "&requestType=" . $requestType;
+        $signature = hash_hmac("sha256", $rawHash, $serectkey);
+        $data = array(
+            'partnerCode' => $partnerCode,
+            'partnerName' => "Test",
+            "storeId" => "MomoTestStore",
+            'requestId' => $requestId,
+            'amount' => $amount,
+            'orderId' => $orderId,
+            'orderInfo' => $orderInfo,
+            'redirectUrl' => $redirectUrl,
+            'ipnUrl' => $ipnUrl,
+            'lang' => 'vi',
+            'extraData' => $extraData,
+            'requestType' => $requestType,
+            'signature' => $signature
+        );
+        $result = execPostRequest($endpoint, json_encode($data));
+        $jsonResult = json_decode($result, true);  // decode json
 
-            //Just a example, please check more in there
-            header('Location: ' . $jsonResult['payUrl']);
-
+        //Just a example, please check more in there
+        header('Location: ' . $jsonResult['payUrl']);
     } else {
-        header('Location:../../userCommon/UserIndex.php?usingPage=done&orderId='.$order_id);
+        header('Location:../../userCommon/UserIndex.php?usingPage=done&orderId=' . $order_id);
     }
 }
 ?>
