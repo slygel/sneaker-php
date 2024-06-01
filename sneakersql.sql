@@ -3299,5 +3299,7 @@ INSERT INTO tbl_product_size (product_id, size_id, quantity) VALUES
 ('7f0f5819-7962-401c-b98f-5d7bfd92a250', '59ad58ce-848f-11ee-b962-0242ac120002', 27),
 ('7f0f5819-7962-401c-b98f-5d7bfd92a250', '5f2518c8-848f-11ee-b962-0242ac120002', 54);
 
-INSERT INTO `tbl_user` (`id`, `code`, `user_image`, `fullname`, `username`, `password`, `email`, `phonenumber`, `address`, `createDate`, `birthDate`, `gender`) VALUES
+INSERT INTO `tbl_user` 
+(`id`, `code`, `user_image`, `fullname`, `username`, `password`, `email`, `phonenumber`, `address`, `createDate`, `birthDate`, `gender`) 
+VALUES
 ('9f6c7618-dd6e-4b84-a0f7-669542240e0a', 'SpwtdM50', NULL, NULL, 'root', '123456', 'phong29012003@gmail.com', 0, NULL, NULL, NULL, NULL);

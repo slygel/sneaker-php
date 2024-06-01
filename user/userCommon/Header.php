@@ -119,9 +119,6 @@ if (isset($_SESSION['userImage'])) {
                                         <i class="fa-solid fa-sign-out mr-2 ml-0"></i>
                                         Đăng xuất
                                     </li>
-
-            
-
                                 </ul>
                             </div>
                         </div>
