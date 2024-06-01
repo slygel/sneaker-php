@@ -157,13 +157,7 @@ if (isset($_POST['login']) && isset($_POST['username']) && isset($_POST['passwor
             <div class="form-container sign-up-container">
                 <form name="signUp" action="" method="POST">
                     <h1>Đăng ký</h1>
-                    <div class="social-container">
-                        <!-- login with fb  -->
-                        <?php if (isset($loginUrl)) { ?>
-                            <a href="<?php echo $loginUrl; ?>" target="_blank" class="social"><i class="fab fa-facebook"></i></a>
-                        <?php } ?>
-                    </div>
-                    <span>Tạo tài khoản mới</span>
+                    <!-- <span>Tạo tài khoản mới</span> -->
                     <label>
                         <input required name="username" type="text" placeholder="Tên tài khoản" />
                     </label>
@@ -187,18 +181,7 @@ if (isset($_POST['login']) && isset($_POST['username']) && isset($_POST['passwor
                 <form name="login" action="" method="POST">
                     <h1>Đăng nhập</h1>
                     <div class="social-container">
-                        <!-- login with fb  -->
-                        <?php if (isset($loginUrl)) { ?>
-                            <a href="<?php echo $loginUrl; ?>" target="_blank" class="social"><i class="fab fa-facebook"></i></a>
-                        <?php } ?>
-
-                        <!-- login with google  -->
-                        <?php if (isset($authUrl)) { ?>
-                            <a href="<?php echo $authUrl; ?>" target="_blank" class="social"><i class="fab fa-google"></i></a>
-                        <?php } ?>
-
                     </div>
-                    <span> Hoặc đăng nhập bằng tài khoản sẵn có</span>
                     <label>
                         <input required name="username" type="text" placeholder="Tên tài khoản" />
                     </label>
